@@ -1,3 +1,5 @@
+import os
+os.system("")
 def List(list,load):                                     #Converteix un array en un string
     value = [x[1] for x in Dic2List(load)]
     temp = color.b.blue
