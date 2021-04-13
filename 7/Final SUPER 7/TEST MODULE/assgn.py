@@ -21,13 +21,12 @@ def Dic2List(dict):                                 #Aquesta funció converteix 
     return dictlist
 def namestr(obj, namespace):
     return [name for name in namespace if namespace[name] is obj]
-def List2list(list):
+def List2list(list,con = " + "):
     temp = ""
     for i,item in enumerate(list):
-        conj = " + "
         if(i>=len(list)-1):
             conj = ""
-        temp += str(list[i])+conj
+        temp += str(list[i])+con
     return temp
 def Ar2Dict(ar,ma):
     r = []
