@@ -18,7 +18,12 @@ def ciclista():
 def VelocitatSo():
     return "És supersónic" if int(input("Km/h?(Avió)"))*3.6 >= 340 else "No ho és"
 def f85():
-    valors = Assgn(Ar2Dict(["Valor 1","Valor 2","Valor 3"],"km/h"),conj="km/h")
+    dic = Ar2Dict(["Cotxe 1","Cotxe 2"],"km/h")
+    dic[2] = ("Temps","hores")
+    valors = Assgn(dic,conj="en")
+    a = valors.llista[0]*valors.llista[2]
+    b = valors.llista[1]*valors.llista[2]
+    print("Els separa {} km".format(abs(a-b)))
 def Ar2Dict(ar,ma):
     r = []
     for x in ar:
