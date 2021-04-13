@@ -1,3 +1,7 @@
+"""
+Assgn class v 0.3.1
+Doc
+"""
 import os
 os.system("")
 def List(list,load):                                     #Converteix un array en un string
