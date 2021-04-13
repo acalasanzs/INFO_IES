@@ -3,6 +3,7 @@ from assgn import *     #Importa la class Assgn del altre document i totes les m
 import math
 class Tots_Els_Apartats:
     class Set_1:
+        """El primer ex"""
         def cub():
             ask = Assgn(Ar2Dict(["x","y","z"],"metres"),conj="en")
             res = 1
@@ -13,10 +14,10 @@ class Tots_Els_Apartats:
             return "{} m^3".format(((math.pi)*ask.llista[0]**2)*ask.llista[1])
         def con():
             ask = Assgn(Ar2Dict(["radi","altura"],"metres"),conj="en")
-            return ""(((math.pi)*ask.llista[0]**2)*ask.llista[1])/3
+            return "{} m^3".format((((math.pi)*ask.llista[0]**2)*ask.llista[1])/3)
         def esfera():
             ask = Assgn(Ar2Dict(["radi"],"metres"),conj="en")
-            return (math.pi)*(3/4)*(ask.llista[0]**3)
+            return "{} m^3".format((math.pi)*(3/4)*(ask.llista[0]**3))
     class Vuit_1:
         def vm():
             inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")
@@ -44,7 +45,9 @@ class Tots_Els_Apartats:
             return "Els separa {} km".format(abs(a-b))
 
 
-
+"""
+Un indexador de totes les activitats!
+"""
 def optionsinclass(cls):
     method_list = [method for method in dir(cls) if method.startswith('__') is False]
     print("Options in {}: {}{} {}".format(cls.__name__,color.b.blue,List2list(method_list,", "),color.end))
@@ -55,5 +58,8 @@ def optionsinclass(cls):
         res = int(input("Index? "))
     return getattr(cls,method_list[res])
 def classMehtod(cls):
+    a = ": "
+    if cls.__doc__ != None: a += cls.__doc__
+    print(color.b.red,cls.__name__,a,color.end)
     print(optionsinclass(cls)())
 classMehtod(optionsinclass(Tots_Els_Apartats))
