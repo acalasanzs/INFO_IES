@@ -19,7 +19,7 @@ class Tots_Els_Apartats:
             ask = Assgn(Ar2Dict(["radi"],"metres"),conj="en")
             return "{} m^3".format((math.pi)*(3/4)*(ask.llista[0]**3))
     class Vuit_1:
-        def vm():
+        def VelocitatMitjana():
             inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")
             res = inputs.llista[0]/inputs.llista[1]
             return "Result = {} m/s".format(res)
@@ -32,19 +32,36 @@ class Tots_Els_Apartats:
                 return "Ans = {} m/s".format(float(input("kmh?"))/3.6)
             else:
                 return "Ans = {} km/h".format(float(input("ms?"))*3.6)
-        def ciclista():
+        def VelocitatMitjanaCiclista():
             res = Assgn({0:["Distancia","metres"],1:["Velocitat","m/s"]},conj = "en")
         def VelocitatSo():
             return "És supersónic" if int(input("Km/h?(Avió)"))*3.6 >= 340 else "No ho és"
-        def f85():
+        def DistQueSeparaDosCotxes():
             dic = Ar2Dict(["Cotxe 1","Cotxe 2"],"km/h")
             dic[2] = ("Temps","hores")
             valors = Assgn(dic,conj="en")
             a = valors.llista[0]*valors.llista[2]
             b = valors.llista[1]*valors.llista[2]
             return "Els separa {} km".format(abs(a-b))
-
-
+    class Vuit_2:
+        def MagnitudsDunCircuitElectric():
+            dic = {
+                0: ("Resitencia","Ohms"),
+                1:  ("Intensitat","Ampers"),
+                2: ("Tensió","Volts"),
+                3: ("Energia","Joules")
+            }
+            ask = Assgn(dic,conj="en")
+        def LleiDOhm():
+            intensitat = float(input("Intensitat en milampers: "))
+            while not(intensitat in range(1,1001)):
+                print(mess.err)
+                intensitat = float(input("Intensitat en milampers: "))
+            tensio = float(input("Tensió en volts: "))
+            while not(tensio in range(2,231)):
+                print(mess.err)
+                tensio = float(input("Tensió en volts: "))
+            return "{} Ohms".format(intensitat/tensio)
 """
 Un indexador de totes les activitats!
 """

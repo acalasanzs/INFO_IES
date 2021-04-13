@@ -34,6 +34,12 @@ def Ar2Dict(ar,ma):
         r.append((x,ma))
     dic = dict((key,r[key]) for key in range(len(ar)))
     return dic
+def List2Dict(ar):
+    r = []
+    for x in ar:
+        r.append((x,x))
+    dic = dict((key,r[key]) for key in range(len(ar)))
+    return dic
 class color:
     class t:
         HEADER = '\033[95m'
