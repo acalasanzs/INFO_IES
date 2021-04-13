@@ -67,6 +67,9 @@ class mess:
     def optionAsks():
         print("{}Dict not found{}".format(color.b.red,color.end))
         quit()
+    def Empty():
+        print("{}It's empty!!!!{}".format(color.b.red,color.end))
+        quit()
 
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
