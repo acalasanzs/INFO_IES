@@ -4,7 +4,7 @@ class eight:
     def vm():
         inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")
         res = inputs.llista[0]/inputs.llista[1]
-        print("Result = {} m/s".format(res))
+        return "Result = {} m/s".format(res)
     def km2ms():
         res = int(input("Introdueix kmh o ms: "))
         while not(res in (1,2)):
@@ -24,14 +24,15 @@ class eight:
         valors = Assgn(dic,conj="en")
         a = valors.llista[0]*valors.llista[2]
         b = valors.llista[1]*valors.llista[2]
-        print("Els separa {} km".format(abs(a-b)))
-
-def optionsinclass(cls):
-    method_list = [method for method in dir(eight) if method.startswith('__') is False]
-    print(List2list(method_list,", "))
-    res = int(input("Index? "))
-    while not(res in range(len(method_list))):
-        print(mess.err)
-        res = int(input("Index? "))+1
-    return method_list[res-1]
-eight.(optionsinclass(eight))()
+        return "Els separa {} km".format(abs(a-b))
+def classMehtod(cls):
+    def optionsinclass(cls):
+        method_list = [method for method in dir(cls) if method.startswith('__') is False]
+        print("Options in {}: {}{} {}".format(cls.__name__,color.b.blue,List2list(method_list,", "),color.end))
+        res = int(input("Index? "))
+        while not(res in range(len(method_list))):
+            print(mess.err)
+            res = int(input("Index? "))+1
+        return method_list[res-1]
+    print(getattr(cls,optionsinclass(cls))())
+classMehtod(eight)
