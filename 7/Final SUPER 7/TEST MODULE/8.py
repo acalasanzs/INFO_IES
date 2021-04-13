@@ -25,5 +25,13 @@ class eight:
         a = valors.llista[0]*valors.llista[2]
         b = valors.llista[1]*valors.llista[2]
         print("Els separa {} km".format(abs(a-b)))
-method_list = [method for method in dir(eight) if method.startswith('__') is False]
-print(List2list(method_list),",")
+
+def optionsinclass(cls):
+    method_list = [method for method in dir(eight) if method.startswith('__') is False]
+    print(List2list(method_list,", "))
+    res = int(input("Index? "))
+    while not(res in range(len(method_list))):
+        print(mess.err)
+        res = int(input("Index? "))+1
+    return method_list[res-1]
+eight.(optionsinclass(eight))()
