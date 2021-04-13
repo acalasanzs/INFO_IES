@@ -1,7 +1,7 @@
 #myobject = Assgn({0: ["jA","metres"],1:"d",2:"aa",3:"ff"},None,[False,True,True],"en")
-from assgn import Assgn
+from assgn import *     #Importa la class Assgn del altre document i totes les meves funcions
 def vm():
-    inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},None,None,"en")
+    inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")
     res = inputs.llista[0]/inputs.llista[1]
     print("Result = {} m/s".format(res))
 def km2ms():
@@ -24,10 +24,4 @@ def f85():
     a = valors.llista[0]*valors.llista[2]
     b = valors.llista[1]*valors.llista[2]
     print("Els separa {} km".format(abs(a-b)))
-def Ar2Dict(ar,ma):
-    r = []
-    for x in ar:
-        r.append((x,ma))
-    dic = dict((key,r[key]) for key in range(len(ar)))
-    return dic
 f85()

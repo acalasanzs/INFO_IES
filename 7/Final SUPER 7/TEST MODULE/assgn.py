@@ -29,6 +29,12 @@ def List2list(list):
             conj = ""
         temp += str(list[i])+conj
     return temp
+def Ar2Dict(ar,ma):
+    r = []
+    for x in ar:
+        r.append((x,ma))
+    dic = dict((key,r[key]) for key in range(len(ar)))
+    return dic
 class color:
     class t:
         HEADER = '\033[95m'
