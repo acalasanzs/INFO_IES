@@ -25,14 +25,15 @@ class eight:
         a = valors.llista[0]*valors.llista[2]
         b = valors.llista[1]*valors.llista[2]
         return "Els separa {} km".format(abs(a-b))
+def optionsinclass(cls):
+    method_list = [method for method in dir(cls) if method.startswith('__') is False]
+    print("Options in {}: {}{} {}".format(cls.__name__,color.b.blue,List2list(method_list,", "),color.end))
+    res = int(input("Index? "))
+    while not(res in range(len(method_list))):
+        print(mess.err)
+        res = int(input("Index? "))+1
+    return method_list[res-1]
 def classMehtod(cls):
-    def optionsinclass(cls):
-        method_list = [method for method in dir(cls) if method.startswith('__') is False]
-        print("Options in {}: {}{} {}".format(cls.__name__,color.b.blue,List2list(method_list,", "),color.end))
-        res = int(input("Index? "))
-        while not(res in range(len(method_list))):
-            print(mess.err)
-            res = int(input("Index? "))+1
-        return method_list[res-1]
     print(getattr(cls,optionsinclass(cls))())
+print(optionsinclass(some))
 classMehtod(eight)
