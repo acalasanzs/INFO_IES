@@ -199,6 +199,5 @@ def classMehtod(cls):
     if cls.__doc__ != None: a += cls.__doc__
     print(color.b.red,cls.__name__,a,color.end)
     print(optionsinclass(cls)())
-exec(open("Definitive/7-8/ampliacio.py").read())
 classMehtod(optionsinclass(Tots_Els_Apartats))
 os.system("pause")

@@ -11,7 +11,7 @@ TODO:
     Càlculs de velocitat angular en cotxe()
 """
 llista = []
-valname = {
+valuename = {
     0: ("la distància que recorres","metres"),
     1:("el temps que tardes en recorre aquesta distància","segons"),    #Un dictionary de tuples, meravellós.
     2:("radi de la roda","cm")
@@ -63,11 +63,11 @@ def Assign(amount,load,offset):
             break               #Finalment, tot s'ha fet exitosament, trenquem el while.
 """    result = ""
     for l,x in enumerate(llista):
-        result += valname[l]+" = "+str(llista[l])+"; "
+        result += valuename[l]+" = "+str(llista[l])+"; "
     print(result)"""
 
 def List(list):                                     #Converteix un array en un string
-    value = [x[1] for x in Dic2List(valname)]
+    value = [x[1] for x in Dic2List(valuename)]
     temp = "\u001b[44m"
     for i,j in enumerate(list):
         y = " "+end
@@ -111,8 +111,8 @@ def cotxe():                                            #I aquí l'interfaç de 
 ##     ##  ##  ##    ##    ##    ##     ## ##   ### ##    ##  ##  ##     ##    ##   ##         ##    ##       ##     ## ##        ##    ## 
 ########  ####  ######     ##    ##     ## ##    ##  ######  #### ##     ##     ####  ##       ##    ######## ##     ## ##         ######  
 """,end="")
-    fvalue = [x[1] for x in Dic2List(valname)]
-    Assign(3,valname,0)
+    fvalue = [x[1] for x in Dic2List(valuename)]
+    Assign(3,valuename,0)
     dis = llista[0]
     temps = llista[1]
     rad = llista[2]/100
