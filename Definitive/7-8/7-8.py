@@ -59,7 +59,7 @@ class Tots_Els_Apartats:
             print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
             return "FET"
         def Ampliacio():
-            return 'https://pastebin.com/AEy9SX4C'
+            exec(open("Definitive/7-8/ampliacio.py").read())
         def OddEven():
             inputs = {
                 0: ("des d'ón","enter"),
@@ -199,4 +199,6 @@ def classMehtod(cls):
     if cls.__doc__ != None: a += cls.__doc__
     print(color.b.red,cls.__name__,a,color.end)
     print(optionsinclass(cls)())
+exec(open("Definitive/7-8/ampliacio.py").read())
 classMehtod(optionsinclass(Tots_Els_Apartats))
+os.system("pause")
