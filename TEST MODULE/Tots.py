@@ -62,6 +62,33 @@ class Tots_Els_Apartats:
                 print(mess.err)
                 tensio = float(input("Tensió en volts: "))
             return "{} Ohms".format(intensitat/tensio)
+        def ResitenciesEnSerie():
+            res = 0
+            valors = []
+            i = 0
+            while res is not None:
+                i += 1
+                res = input("Resitencia {}: ".format(i))
+                if not(res):
+                    print("Casos Finalitzat!")
+                    break
+                else:
+                    try:
+                        res = float(res)
+                        valors.append(abs(res))
+                        print(color.t.OKBLUE,List2list(valors,", "),color.end)
+                    except:
+                        print(mess.err)
+                        i-= 1
+                        continue
+            ask = input("En paral·lel o en serie?")
+            while ask not in ("0","1"):
+                print(mess.err)
+                ask = input("En paral·lel o en serie?")
+            if ask == 0:
+                print("En paral·lel dona un total de {} Ohms".format(sum(valors)))
+            else:
+                return "En serie dona un total de {} Ohms".format(sum(valors))
 """
 Un indexador de totes les activitats!
 """
