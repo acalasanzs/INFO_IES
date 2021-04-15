@@ -20,6 +20,8 @@ end = "\033[0;m"
 err = "\n\u001b[41m"+"No has introduït un nombre vàlid"+"!\033[0;m"
 chose = None
 fvalue = None
+import math,time,os
+os.system("")
 def Assign(amount,load,offset):
     try:                                                                #Verificar si els pàrametres són vàlids
         if float(offset).is_integer() and float(amount).is_integer():   #Primer es verificar si el valors són enters
@@ -136,3 +138,4 @@ def cotxe():                                            #I aquí l'interfaç de 
         value = namestr(results[i],locals())
         print(value[0]," = ",results[i])
 cotxe()#START!
+os.system("pause")
