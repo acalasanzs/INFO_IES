@@ -59,7 +59,10 @@ class Tots_Els_Apartats:
             print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
             return "FET"
         def Ampliacio():
-            os.system(r"C:/Users/07cal/Documents/Python/IES/Definitive/7-8/ampliacio.exe")
+            try:
+                os.system(r"C:/Users/07cal/Documents/Python/IES/Definitive/7-8/ampliacio.exe")
+            except:
+                exec(open("Definitive/7-8/ampliacio.py").read(),globals())
         def OddEven():
             inputs = {
                 0: ("des d'ón","enter"),
