@@ -22,7 +22,7 @@ chose = None
 fvalue = None
 import math,time,os
 os.system("")
-#os.system("mode 155,42")
+os.system("mode 155,42")
 def Assign(amount,load,offset):
     try:                                                                #Verificar si els pàrametres són vàlids
         if float(offset).is_integer() and float(amount).is_integer():   #Primer es verificar si el valors són enters

@@ -177,8 +177,8 @@ class Assgn():
                     break
                 self.ans = ans
             if self.rules is None:
-                self.ans = None
-                while self.ans is None:
+                self.ans = -1
+                while self.ans <= 0:
                     whilefunct()
             else:
                 if self.AllowStr:
