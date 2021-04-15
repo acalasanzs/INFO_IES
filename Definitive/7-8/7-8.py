@@ -1,5 +1,10 @@
 from assgn import *     #Importa la class Assgn del altre document i totes les meves funcions
 import math,time,os
+"""
+TODO:
+1. Documentar aquest, ampliacio,py i assgn.py.
+2. Revisar i corregir.
+"""
 class Tots_Els_Apartats:
     class Set_1:
         """El primer ex"""
