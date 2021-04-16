@@ -1,4 +1,5 @@
 from assgn import *     #Importa la class Assgn del altre document i totes les meves funcions
+from ampliacio import cotxe
 import math,time,os
 """
 TODO:
@@ -64,12 +65,7 @@ class Tots_Els_Apartats:
             print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
             return "FET"
         def Ampliacio():
-            if os.path.isfile("C:/Users/07cal/Documents/Python/IES/Definitive/7-8/ampliacio.exe"):
-                print("ok")
-                os.system(r"C:/Users/07cal/Documents/Python/IES/Definitive/7-8/ampliacio.exe")
-            else:
-                print("Compability mode")
-                exec(open("ampliacio.py").read(),globals())
+            cotxe()
         def OddEven():
             inputs = {
                 0: ("des d'ón","enter"),
@@ -209,6 +205,9 @@ def classMehtod(cls):
     if cls.__doc__ != None: a += cls.__doc__
     print(color.b.red,cls.__name__,a,color.end)
     print(optionsinclass(cls)())
-classMehtod(optionsinclass(Tots_Els_Apartats))
-os.system("pause")
+repeat = True
+while repeat:
+    classMehtod(optionsinclass(Tots_Els_Apartats))
+    os.system("pause")
+    repeat =  False if input("Repeat?(Anything,n)") == "n" else True
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico 7-8.py

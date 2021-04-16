@@ -138,5 +138,6 @@ def cotxe():                                            #I aquí l'interfaç de 
     for i in range(len(results)):
         value = namestr(results[i],locals())
         print(value[0]," = ",results[i])
-cotxe()#START!
-os.system("pause")
+if __name__ == "__main__":
+    cotxe()#START!
+    os.system("pause")
