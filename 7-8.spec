@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['7-8.py'],
-             pathex=['C:\\Users\\07cal\\Documents\\Python\\IES'],
+             pathex=['C:\\Users\\07cal\\Documents\\Python\\acs\\IES'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True , icon='c:\\Users\\07cal\\Downloads\\pp.ico')
+          console=True , icon='C:Users07calDownloadspp.ico')
