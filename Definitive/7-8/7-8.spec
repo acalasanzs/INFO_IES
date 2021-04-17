@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['7-8.py'],
-             pathex=['C:\\Users\\07cal\\Documents\\Python\\IES\\Definitive\\7-8'],
+             pathex=['C:\\Users\\07cal\\Documents\\Python\\acs\\IES\\Definitive\\7-8'],
              binaries=[],
              datas=[],
              hiddenimports=[],
