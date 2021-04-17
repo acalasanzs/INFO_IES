@@ -1,6 +1,8 @@
 from assgn import *     #Importa la class Assgn del altre document i totes les meves funcions
 from ampliacio import cotxe
 import math,time,os
+os.system("mode 155,42")
+time.sleep(0.1)
 """
 TODO:
 1. Documentar aquest, ampliacio,py i assgn.py.
@@ -24,13 +26,13 @@ class Tots_Els_Apartats:
             ask = Assgn(Ar2Dict(["radi"],"metres"),conj="en")
             return "{} m^3".format((math.pi)*(3/4)*(ask.llista[0]**3))
     class Set_2:
-        def DifQuadRect():
+        def Set_2_DifQuadRect():
             obj = Assgn(rang=range(2))
             if obj.llista[0] == obj.llista[1]:
                 return "Quadrat"
             else:
                 return "Rectangle"
-        def roda():
+        def Set_3_roda():
             roda = """                          ██████████████                  
                       ████▒▒▒▒▒▒▓▓▒▒▒▒▒▒████              
                   ████▒▒▒▒██████▒▒██████▒▒▒▒████          
@@ -64,9 +66,9 @@ class Tots_Els_Apartats:
             print("Una roda de "+str(obj.llista[0])+" metres de radi")
             print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
             return "FET"
-        def Ampliacio():
+        def Set_3_Ampliacio():
             cotxe()
-        def OddEven():
+        def Set_4_OddEven():
             inputs = {
                 0: ("des d'ón","enter"),
                 1: ("fins ón","enter")
@@ -98,6 +100,30 @@ class Tots_Els_Apartats:
             time.sleep(1)
             print("Total:","(","des de:",int(llista[0]),";fins a:",int(llista[1]),")","\nImparells =",suma(odd),"Parells =",suma(even))
             return ""
+        def Set_5_Triangles():
+            ask = Assgn(rang=range(3))
+            seen = []
+            c = 1
+            for x in ask.llista:
+                if x in seen:
+                    c += 1
+                seen.append(x)
+            if c == 1:
+                print("Escalé")
+            elif c == 2:
+                print("Isosceles")
+            elif c == 3:
+                print("Equilater")
+            a,b,c = seen
+            try:
+                A = math.acos((b**2+c**2-a**2)/2*b*c)
+                B = math.acos((a**2+c**2-b**2)/2*a*c)
+                C = math.acos((a**2+b**2-c**2)/2*a*b)
+                for i in [A,B,C]:
+                    print(namestr(i,locals())[0],"=",math.degrees(i),"º","radians:",i)
+            except:
+                print(mess.err)
+                Tots_Els_Apartats.Set_2.Set_5_Triangles()
     class Vuit_1:
         def VelocitatMitjana():
             inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")

@@ -28,12 +28,19 @@ def List2list(list,co = " + "):
             co = ""
         temp += str(list[i])+co
     return temp
-def Ar2Dict(ar,ma):
-    r = []
-    for x in ar:
-        r.append((x,ma))
-    dic = dict((key,r[key]) for key in range(len(ar)))
-    return dic
+def Ar2Dict(ar,ma = None):
+    if ma is not None:
+        r = []
+        for x in ar:
+            r.append((x,ma))
+        dic = dict((key,r[key]) for key in range(len(ar)))
+        return dic
+    else:
+        r = []
+        for x in ar:
+            r.append((x,x))
+        dic = dict((key,r[key]) for key in range(len(ar)))
+        return dic
 def List2Dict(ar):
     r = []
     for x in ar:
