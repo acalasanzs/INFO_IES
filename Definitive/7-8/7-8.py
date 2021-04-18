@@ -1,16 +1,15 @@
-from assgn import *     #Importa la class Assgn del altre document i totes les meves funcions
-from ampliacio import cotxe
-import math,time,os
-os.system("mode 155,42")
-time.sleep(0.1)
+from assgn import *                                             #Importa la class Assgn del altre document i totes les meves funcions
+from ampliacio import cotxe                                     #Importa la ampliació del 7.3 per executarla més endavant
+import math,time,os                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
+time.sleep(0.1)                                                 #Bugfix
 """
 TODO:
 1. Documentar aquest, ampliacio,py i assgn.py.
-2. Revisar i corregir.
 """
-class Tots_Els_Apartats:
+class Tots_Els_Apartats:                                        #Class que engloba tots els exercicis classificats
     class Set_1:
-        """El primer ex"""
+        """El primer exercici del set només"""
         def cub():
             ask = Assgn(Ar2Dict(["x","y","z"],"metres"),conj="en")
             res = 1
@@ -26,6 +25,7 @@ class Tots_Els_Apartats:
             ask = Assgn(Ar2Dict(["radi"],"metres"),conj="en")
             return "{} m^3".format((math.pi)*(3/4)*(ask.llista[0]**3))
     class Set_2:
+        "La resta del set excepte el primer"
         def Set_2_DifQuadRect():
             obj = Assgn(rang=range(2))
             if obj.llista[0] == obj.llista[1]:
@@ -33,7 +33,7 @@ class Tots_Els_Apartats:
             else:
                 return "Rectangle"
         def Set_3_roda():
-            roda = """                          ██████████████                  
+            roda = """                          ██████████████                              #Una Roda             
                       ████▒▒▒▒▒▒▓▓▒▒▒▒▒▒████              
                   ████▒▒▒▒██████▒▒██████▒▒▒▒████          
                 ██▒▒▒▒████    ██▒▒██    ████▒▒▒▒██        
@@ -59,15 +59,15 @@ class Tots_Els_Apartats:
                       ████▒▒▒▒▒▒▓▓▒▒▒▒▒▒████              
                           ██████████████                  
         """
-            obj = Assgn({0: ("Radi","metres"),1:("Les voltes que dona","voltes")})
-            circ = obj.llista[0]*math.pi
+            obj = Assgn({0: ("Radi","metres"),1:("Les voltes que dona","voltes")})                              #Preguntes
+            circ = obj.llista[0]*math.pi                                                                        #Long circumferencia
             print("\u001b[1m\u001b[4m\u001b[7m ")
             print(roda)
             print("Una roda de "+str(obj.llista[0])+" metres de radi")
             print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
             return "FET"
         def Set_3_Ampliacio():
-            cotxe()
+            cotxe()                                                                                             #Funció de ampliacio.py
         def Set_4_OddEven():
             inputs = {
                 0: ("des d'ón","enter"),
@@ -101,6 +101,7 @@ class Tots_Els_Apartats:
             print("Total:","(","des de:",int(llista[0]),";fins a:",int(llista[1]),")","\nImparells =",suma(odd),"Parells =",suma(even))
             return ""
         def Set_5_Triangles():
+            print("Torna el tipus de triangle segons els seus costats i els seus angles respectius (A,B,C)")
             ask = Assgn(rang=range(3))
             seen = []
             c = 1
@@ -119,15 +120,17 @@ class Tots_Els_Apartats:
                 """ alpha.SetValue(180 * Math.acos((b * b + c * c - a * a) / (2 * b * c)) / Math.PI);
 				    beta.SetValue(180 * Math.acos((a * a + c * c - b * b) / (2 * a * c)) / Math.PI);
 					gamma.SetValue(180 * Math.acos((a * a + b * b - c * c) / (2 * a * b)) / Math.PI); """
-                A = math.acos((b * b + c * c - a * a) / (2 * b * c))
-                B = math.acos((a * a + c * c - b * b) / (2 * a * c))
-                C = math.acos((a * a + b * b - c * c) / (2 * a * b))
+                A = math.acos((b * b + c * c - a * a) / (2 * b * c))                                                #Alpha
+                B = math.acos((a * a + c * c - b * b) / (2 * a * c))                                                #Beta
+                C = math.acos((a * a + b * b - c * c) / (2 * a * b))                                                #Gamma
                 for i in [A,B,C]:
                     print(namestr(i,locals())[0],"=",str(math.degrees(i))+"º","radians:",i)
+                return ""
             except:
-                print(mess.err)
+                print(color.b.red,"Aquest triangle no existeix XD",color.end)
                 Tots_Els_Apartats.Set_2.Set_5_Triangles()
     class Vuit_1:
+        "Exercicis del 8 del primer document"
         def VelocitatMitjana():
             inputs = Assgn({0:("distancia","metres"),1:("temps","segons")},conj="en")
             res = inputs.llista[0]/inputs.llista[1]
@@ -153,6 +156,7 @@ class Tots_Els_Apartats:
             b = valors.llista[1]*valors.llista[2]
             return "Els separa {} km".format(abs(a-b))
     class Vuit_2:
+        "Exercicis del 8 del segon document"
         def MagnitudsDunCircuitElectric():
             dic = {
                 0: ("Resitencia","Ohms"),
