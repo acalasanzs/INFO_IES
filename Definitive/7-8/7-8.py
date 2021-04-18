@@ -1,6 +1,7 @@
 from assgn import *                                             #Importa la class Assgn del altre document i totes les meves funcions
 from ampliacio import cotxe                                     #Importa la ampliació del 7.3 per executarla més endavant
 import math,time,os                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+os.system("title "+"Apartats 7 i 8 by Albert CS")
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
 time.sleep(0.1)                                                 #Bugfix
 """
@@ -243,4 +244,4 @@ while repeat:
     classMehtod(optionsinclass(Tots_Els_Apartats))
     os.system("pause")
     repeat =  False if input("Repeat?(Anything,n)") == "n" else True
-#pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico 7-8.py
+#pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Apartats 7 i 8 by Albert CS" 7-8.py
