@@ -116,11 +116,14 @@ class Tots_Els_Apartats:
                 print("Equilater")
             a,b,c = [i for i in seen]
             try:
-                A = math.acos((a**2-b**2-c**2)/-2*a*b)
-                B = math.acos((b**2-a**2-c**2)/-2*a*b)
-                C = round(180-A-B)
+                """ alpha.SetValue(180 * Math.acos((b * b + c * c - a * a) / (2 * b * c)) / Math.PI);
+				    beta.SetValue(180 * Math.acos((a * a + c * c - b * b) / (2 * a * c)) / Math.PI);
+					gamma.SetValue(180 * Math.acos((a * a + b * b - c * c) / (2 * a * b)) / Math.PI); """
+                A = math.acos((b * b + c * c - a * a) / (2 * b * c))
+                B = math.acos((a * a + c * c - b * b) / (2 * a * c))
+                C = math.acos((a * a + b * b - c * c) / (2 * a * b))
                 for i in [A,B,C]:
-                    print(namestr(i,locals())[0],"=",math.degrees(i),"º","radians:",i)
+                    print(namestr(i,locals())[0],"=",str(math.degrees(i))+"º","radians:",i)
             except:
                 print(mess.err)
                 Tots_Els_Apartats.Set_2.Set_5_Triangles()
