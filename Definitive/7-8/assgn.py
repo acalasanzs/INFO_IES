@@ -61,7 +61,10 @@ class color:
         end = "\033[0;m"
     class b:
         red = "\u001b[41m"
+        green = "\u001b[42m"
+        yellow = "\u001b[43m"
         blue = "\u001b[44m"
+        purple = "\u001b[45m"
     end = "\033[0;m"
 class mess:
     err = "{}No has introduït un nombre vàlid{}".format(color.b.red,color.end)
