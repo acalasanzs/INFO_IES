@@ -116,7 +116,7 @@ class Tots_Els_Apartats:                                        #Class que englo
                 print("Isosceles")
             elif c == 3:
                 print("Equilater")
-            a,b,c = [i for i in seen]
+            a,b,c = seen
             try:
                 """ alpha.SetValue(180 * Math.acos((b * b + c * c - a * a) / (2 * b * c)) / Math.PI);
 				    beta.SetValue(180 * Math.acos((a * a + c * c - b * b) / (2 * a * c)) / Math.PI);
@@ -137,14 +137,31 @@ class Tots_Els_Apartats:                                        #Class que englo
             res = inputs.llista[0]/inputs.llista[1]
             return "Result = {} m/s".format(res)
         def km2ms():
-            res = int(input("Introdueix kmh o ms: "))
+            res = 0
             while not(res in (1,2)):
-                print(mess.err)
-                res = int(input("Introdueix kmh o ms: "))
+                while True:
+                    try:
+                        res = int(input("Introdueix kmh o ms: "))
+                    except:
+                        print(mess.err)
+                        continue
+                    break
             if res == 1:
-                return "Ans = {} m/s".format(float(input("kmh?"))/3.6)
+                while True:
+                    try:
+                        return "Ans = {} m/s".format(float(input("kmh?"))/3.6)
+                    except:
+                        print(mess.err)
+                        continue
+                    break
             else:
-                return "Ans = {} km/h".format(float(input("ms?"))*3.6)
+                while True:
+                    try:
+                        return "Ans = {} km/h".format(float(input("ms?"))*3.6)
+                    except:
+                        print(mess.err)
+                        continue
+                    break
         def VelocitatMitjanaCiclista():
             res = Assgn({0:["Distancia","metres"],1:["Velocitat","m/s"]},conj = "en")
         def VelocitatSo():
