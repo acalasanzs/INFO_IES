@@ -114,11 +114,11 @@ class Tots_Els_Apartats:
                 print("Isosceles")
             elif c == 3:
                 print("Equilater")
-            a,b,c = [math.radians(i) for i in seen]
+            a,b,c = [i for i in seen]
             try:
-                A = math.acos((b**2+c**2-a**2)/2*b*c)
-                B = math.acos((a**2+c**2-b**2)/2*a*c)
-                C = math.acos((a**2+b**2-c**2)/2*a*b)
+                A = math.acos((a**2-b**2-c**2)/-2*a*b)
+                B = math.acos((b**2-a**2-c**2)/-2*a*b)
+                C = round(180-A-B)
                 for i in [A,B,C]:
                     print(namestr(i,locals())[0],"=",math.degrees(i),"º","radians:",i)
             except:
