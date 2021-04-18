@@ -3,11 +3,11 @@
 block_cipher = None
 
 
-a = Analysis(['7-8.py'],
+a = Analysis(['Definitive\\7-8\\7-8.py'],
              pathex=['C:\\Users\\07cal\\Documents\\Python\\acs\\IES'],
              binaries=[],
              datas=[],
-             hiddenimports=[],
+             hiddenimports=['Module'],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True , icon='C:Users07calDownloadspp.ico')
+          console=True , icon='C:\\Users\\07cal\\Downloads\\pp.ico 7-8.py', manifest='Definitive\\7-8\\manifest.xml')
