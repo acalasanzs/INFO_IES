@@ -239,6 +239,64 @@ class Tots_Els_Apartats:                                        #Class que englo
                 return "{} KWh".format(res)
             else:
                 return "{} Wh".format(res)
+    class Nou_Ampliació:
+        def Ampliacio():
+            def C(temp,res):
+                print(res,"A Celsius")
+                if res == "F":
+                    #(0 °C × 9 / 5) + 32
+                    return "{}º{}".format((temp)*(9/5) + 32,res)
+                elif res == "K":
+                    return "{}º{}".format(temp + 273.15,res)
+            def F(temp,res):
+                print(res,"A Farenheight")
+                if res == "C":
+                    #(32 °F − 32) × 5 / 9 = 0 °C
+                    return "{}º{}".format((temp-32)*(5/9),res)
+                elif res == "K":
+                    #(32 °F − 32) × 5 / 9 + 273,15 = 273,15 K
+                    return "{}º{}".format((temp-32)*(5/9) + 273.15,res)
+            def K(temp,res):
+                print(res,"A Kelvin")
+                if res == "F":
+                    return "{}º{}".format((temp-32)*(5 / 9) + 273.15,res)
+                elif res == "C":
+                    return "{}º{}".format(temp + 273.15,res)
+            def ask():
+                while True:
+                    try:
+                        temp = float(input("Temperatura? "))
+                    except:
+                        print(mess.err)
+                        continue
+                    break
+                return temp
+            temp = ask()
+            res = input("En què està (F,C,K)? ")
+            while res not in ["F","C","K"]:
+                print(mess.err)
+                res = input("En què està (F,C,K)? ")
+            if res == "C":
+                if temp < 273.15:
+                    print(mess.err)
+                    temp = ask()
+            elif res == "K":
+                if temp < 0:
+                    print(mess.err)
+                    temp = ask()
+            elif res == "F":
+                if temp < -459.67:
+                    print(mess.err)
+                    temp = ask()
+            target = input("A què vols (F,C,K)? ")
+            while target not in ["F","C","K"]:
+                print(mess.err)
+                target = input("A què vols (F,C,K)? ")
+            if target == res:
+                print(res,"A",res)
+                print(str(temp)+res)
+            else:
+                print(locals()[target](temp,res))
 """
 Un indexador de totes les activitats!
 """
