@@ -288,10 +288,12 @@ class Tots_Els_Apartats:                                        #Class que englo
                 if temp < -459.67:
                     print(mess.err)
                     temp = ask()
+            print(color.b.green,"{}º{}".format(temp,res),color.end)
             target = input("A què vols (F,C,K)? ")
             while target not in ["F","C","K"]:
                 print(mess.err)
                 target = input("A què vols (F,C,K)? ")
+            print(color.b.green,"{}º{}".format("to: ",target),color.end)
             if target == res:
                 print(res,"A",res)
                 print(str(temp)+res)
