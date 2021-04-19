@@ -130,6 +130,14 @@ class Tots_Els_Apartats:                                        #Class que englo
             except:
                 print(color.b.red,"Aquest triangle no existeix XD",color.end)
                 Tots_Els_Apartats.Set_2.Set_5_Triangles()
+            def xy(ad,an):
+            x = math.cos(math.radians(an))*ad
+            y = math.sin(math.radians(an))*ad
+            return (x,y)
+            a = xy(a,A)
+            print(a)
+            b = xy(b,B)
+            c = xy(c,C)
     class Vuit_1:
         "Exercicis del 8 del primer document"
         def VelocitatMitjana():

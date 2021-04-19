@@ -1,8 +1,6 @@
 import tkinter
 from assgn import *
 def Triangles():
-    global seen
-    global A,B,C
     print("Torna el tipus de triangle segons els seus costats i els seus angles respectius (A,B,C)")
     ask = Assgn(rang=range(3))
     seen = []
