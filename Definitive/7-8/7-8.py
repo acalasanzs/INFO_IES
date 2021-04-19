@@ -1,6 +1,7 @@
 from assgn import *                                             #Importa la class Assgn del altre document i totes les meves funcions
 from ampliacio import cotxe                                     #Importa la ampliació del 7.3 per executarla més endavant
 import math,time,os                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+from dd import draw
 os.system("title "+"Apartats 7 i 8 by Albert CS")
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
 time.sleep(0.1)                                                 #Bugfix
@@ -126,18 +127,10 @@ class Tots_Els_Apartats:                                        #Class que englo
                 C = math.acos((a * a + b * b - c * c) / (2 * a * b))                                                #Gamma
                 for i in [A,B,C]:
                     print(namestr(i,locals())[0],"=",str(math.degrees(i))+"º","radians:",i)
-                return ""
             except:
                 print(color.b.red,"Aquest triangle no existeix XD",color.end)
                 Tots_Els_Apartats.Set_2.Set_5_Triangles()
-            def xy(ad,an):
-            x = math.cos(math.radians(an))*ad
-            y = math.sin(math.radians(an))*ad
-            return (x,y)
-            a = xy(a,A)
-            print(a)
-            b = xy(b,B)
-            c = xy(c,C)
+            draw(a, b, c)
     class Vuit_1:
         "Exercicis del 8 del primer document"
         def VelocitatMitjana():
