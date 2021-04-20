@@ -14,7 +14,12 @@ def draw(a, b, c):
 
     # draw using Tkinter
     root = Tk()
-    canvas = Canvas(root, width=1200, height=800)
-    canvas.create_polygon(*coords,fill="blue")
+    off = 1.5
+    canvas = Canvas(root, width=700, height=700)
+    pol = canvas.create_polygon(*coords,fill="blue")
+    canvas.scale(pol,0,0,off,off)
+    canvas.move(pol,250/off,250/off)
     canvas.pack()
     root.mainloop()
+if __name__ == "__main__":
+    draw(1,2,1)
