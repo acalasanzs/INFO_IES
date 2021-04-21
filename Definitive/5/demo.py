@@ -4,6 +4,8 @@ class one:
         class three:
             class gol:
                 class ga:
-                    def s():
-                        print("ga")
-opt.options(one,5)
+                    def some():
+                        def s():
+                            def a():
+                                print("face")
+opt.optionsAll(one)()

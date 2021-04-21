@@ -85,7 +85,7 @@ class mess:
         quit()
     def Empty():
         print("{}It's empty!!!!{}".format(color.b.red,color.end))
-
+        quit()
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
     def __init__(self,load=None,rang=None,rules=None,conj=""):
@@ -217,3 +217,64 @@ class Assgn():
         if conj == "": conj = "<None>"
         return color.t.OKCYAN+"Rules\nA0{},A-{},AStr{},OnlInt{}".format(self.Allow0,self.AllowNegative,self.AllowStr,self.OnlyInt)+"\n"+color.end+"\nconj: {},\nrang: {},\n\nquestions: {},\n\nInputs: {}".format(conj,self.rang,self.value,self.llista)
  #myobject = Assgn({0: ["jA","metres"],1:"d",2:"aa",3:"ff"},None,[False,True,True],"en")
+
+
+
+
+
+ class opt:
+    def hasopt(cls):
+        return False if len([method for method in dir(cls) if method.startswith('__') is False]) < 1 else True
+    def optionsinclass(cls):
+        #Indexa totes les dir d'un objecte i les passa per triar una per després retornarla amb getattr com un attr válid.
+        method_list = [method for method in dir(cls) if method.startswith('__') is False]
+        print("Options in {}: {}{} {}".format(cls.__name__,color.b.purple,List2list(method_list,", "),color.end))
+        if len(method_list) < 1: 
+            mess.Empty()
+            return False
+        while True:
+            try:
+                res = int(input("Index? "))
+            except:
+                print(mess.err)
+                continue
+            break
+        while not(res in range(len(method_list))):      #Mentres no sigui un valor dintre l'index no serà válid.
+            if res == -1:
+                return getattr(cls,method_list[-1])
+            else:
+                print(mess.err)
+                res = int(input("Index? "))
+        return getattr(cls,method_list[res])
+    def classMehtod(cls):
+        a = ": "
+        if cls.__doc__ != None: a += cls.__doc__
+        print(color.b.blue,cls.__name__,a,color.end)
+        return optionsinclass(cls)
+    def options(cls,num=1):
+        repeat = True
+        while repeat:
+            if num >= 2:
+                res = cls
+                if num == 2:
+                    res = classMehtod(cls)
+                for x in range(num):
+                    res = classMehtod(res)
+                else:
+                    return res
+            else:
+                classMehtod(cls)
+            os.system("pause")
+            repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+    def optionsAll(cls):
+        repeat = True
+        while repeat:
+            res = classMehtod(cls)
+            while res:
+                if hasopt(res):
+                    res = classMehtod(res)
+                else:
+                    return res
+                    break
+            os.system("pause")
+            repeat =  False if input("Repeat?(Anything,n)") == "n" else True

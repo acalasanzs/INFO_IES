@@ -30,11 +30,12 @@ def options(cls,num=1):
             res = cls
             if num == 2:
                 res = classMehtod(optionsinclass(cls))
-            for x in range(num):
-                if x == range(num)[-1]:
-                    classMehtod(res)
-                else:
-                    res = optionsinclass(res)
+            else:
+                for x in range(num-1):
+                    if x == range(num)[-1]:
+                        classMehtod(res)
+                    else:
+                        res = optionsinclass(res)
         else:
             classMehtod(cls)
         os.system("pause")

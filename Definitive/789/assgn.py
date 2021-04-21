@@ -86,7 +86,6 @@ class mess:
     def Empty():
         print("{}It's empty!!!!{}".format(color.b.red,color.end))
         quit()
-
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
     def __init__(self,load=None,rang=None,rules=None,conj=""):

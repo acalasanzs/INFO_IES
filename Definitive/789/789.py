@@ -2,6 +2,7 @@ from assgn import *                                             #Importa la clas
 from ampliacio import cotxe                                     #Importa la ampliació del 7.3 per executarla més endavant
 import math,time,os                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
 from triangle import draw
+import OptionsInClass as opt
 __doc__ = "Apartats 7, 8 i 9 AMPLIACIÓ I AMPLIACIÓ DE L'AMPLIACIÓ by Albert CS"
 os.system("title "+__doc__)
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
@@ -297,39 +298,11 @@ class Tots_Els_Apartats:                                        #Class que englo
             print(color.b.green,"{}º{}".format("to: ",target),color.end)
             if target == res:
                 print(res,"A",res)
-                print(str(temp)+res)
+                print(color.b.green,str(temp)+res,color.end)
             else:
-                print(locals()[target](temp,res))
-"""
-Un indexador de totes les activitats!
-"""
-def optionsinclass(cls):
-    #Indexa totes les dir d'un objecte i les passa per triar una per després retornarla amb getattr com un attr válid.
-    method_list = [method for method in dir(cls) if method.startswith('__') is False]
-    print("Options in {}: {}{} {}".format(cls.__name__,color.b.purple,List2list(method_list,", "),color.end))
-    if len(method_list) < 1: mess.Empty()
-    while True:
-        try:
-            res = int(input("Index? "))
-        except:
-            print(mess.err)
-            continue
-        break
-    while not(res in range(len(method_list))):      #Mentres no sigui un valor dintre l'index no serà válid.
-        print(mess.err)
-        res = int(input("Index? "))
-    return getattr(cls,method_list[res])
-def classMehtod(cls):
-    a = ": "
-    if cls.__doc__ != None: a += cls.__doc__
-    print(color.b.blue,cls.__name__,a,color.end)
-    print(optionsinclass(cls)())
-repeat = True
+                print(color.b.green,locals()[target](temp,res),color.end)
 def main():
-    while repeat:
-        classMehtod(optionsinclass(Tots_Els_Apartats))
-        os.system("pause")
-        repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+    opt.options(Tots_Els_Apartats,2)
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Apartats 7 i 8 by Albert CS" 7-8.py
 if __name__ == "__main__":
     main()
