@@ -1,4 +1,4 @@
-from assgn import *
+from assgn import List2list,color,mess,os
 def optionsinclass(cls):
     #Indexa totes les dir d'un objecte i les passa per triar una per després retornarla amb getattr com un attr válid.
     method_list = [method for method in dir(cls) if method.startswith('__') is False]

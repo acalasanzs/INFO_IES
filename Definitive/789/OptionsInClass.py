@@ -1,4 +1,4 @@
-from assgn import *
+from assgn import List2list,color,mess,os
 def optionsinclass(cls):
     #Indexa totes les dir d'un objecte i les passa per triar una per després retornarla amb getattr com un attr válid.
     method_list = [method for method in dir(cls) if method.startswith('__') is False]
@@ -26,12 +26,15 @@ def classMehtod(cls):
 def options(cls,num=1):
     repeat = True
     while repeat:
-        res = ""
-        if num > 1:
+        if num >= 2:
+            res = cls
+            if num == 2:
+                res = classMehtod(optionsinclass(cls))
             for x in range(num):
-                res += "classMethod("
-            else:
-                res += "optionsinclass(cls)"
+                if x == range(num)[-1]:
+                    classMehtod(res)
+                else:
+                    res = optionsinclass(res)
         else:
             classMehtod(cls)
         os.system("pause")
