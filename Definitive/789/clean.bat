@@ -1,0 +1,6 @@
+@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\Apartats 7, 8 i 9 by Albert CS.exe"
+@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\Apartats 7, 8 i 9 by Albert CS.spec"
+move "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\dist\Apartats 7, 8 i 9 by Albert CS.exe" "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789"
+@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\build"
+@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\dist"
+@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\__pycache__"
