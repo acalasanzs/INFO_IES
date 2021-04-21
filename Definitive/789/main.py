@@ -325,8 +325,11 @@ def classMehtod(cls):
     print(color.b.blue,cls.__name__,a,color.end)
     print(optionsinclass(cls)())
 repeat = True
-while repeat:
-    classMehtod(optionsinclass(Tots_Els_Apartats))
-    os.system("pause")
-    repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+def main():
+    while repeat:
+        classMehtod(optionsinclass(Tots_Els_Apartats))
+        os.system("pause")
+        repeat =  False if input("Repeat?(Anything,n)") == "n" else True
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Apartats 7 i 8 by Albert CS" 7-8.py
+if __name__ == "__main__":
+    main()
