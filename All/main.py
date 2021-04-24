@@ -401,6 +401,6 @@ class Tots_Els_Apartats:                                        #Class que englo
                 print(color.b.green,locals()[target](temp,res),color.end)
 def main():
     opt.options(Tots_Els_Apartats,2)
-#pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Apartats 7 i 8 by Albert CS" 7-8.py
 if __name__ == "__main__":
     main()
+#pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Tots" main.py
