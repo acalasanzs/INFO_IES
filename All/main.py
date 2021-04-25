@@ -400,19 +400,21 @@ class Tots_Els_Apartats:                                        #Class que englo
             else:
                 print(color.b.green,locals()[target](temp,res),color.end)
 def main():
-    #opt.options(Tots_Els_Apartats,2)
-    sys.argv = ['file.py','cinc','Amp2']
-    def check_class():
-        total = []
-        mat = sys.argv
-        mat[0] = "Tots_Els_Apartats"
-        cls = ""
-        for idx,x in enumerate(mat):
-            cls += "." + x if not x == mat[0] else mat[0]
-            try:
-                assert mat[idx+1] in opt.opts(eval(cls))
-            except:
-                return eval(cls)
+    #sys.argv = ['file.py','cinc','Amp2']
+    if sys.argv[1:]:
+        def check_class():
+            total = []
+            mat = sys.argv
+            mat[0] = "Tots_Els_Apartats"
+            cls = ""
+            for idx,x in enumerate(mat):
+                cls += "." + x if not x == mat[0] else mat[0]
+                try:
+                    assert mat[idx+1] in opt.opts(eval(cls))
+                except:
+                    return eval(cls)
+    else:
+        opt.options(Tots_Els_Apartats,2)
     check_class()()
 if __name__ == "__main__":
     main()
