@@ -41,3 +41,5 @@ def options(cls,num=1):
             classMehtod(cls)
         os.system("pause")
         repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+def opts(cls):
+    return [method for method in dir(cls) if method.startswith('__') is False]

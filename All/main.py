@@ -1,6 +1,6 @@
 from lib import *
 import files
-import math,time,os                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+import math,time,os,sys                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
 __doc__ = "Apartats 7, 8 i 9 AMPLIACIÓ I AMPLIACIÓ DE L'AMPLIACIÓ by Albert CS"
 os.system("title "+__doc__)
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
@@ -400,7 +400,31 @@ class Tots_Els_Apartats:                                        #Class que englo
             else:
                 print(color.b.green,locals()[target](temp,res),color.end)
 def main():
-    opt.options(Tots_Els_Apartats,2)
+    #opt.options(Tots_Els_Apartats,2)
+    sys.argv = ["main.py","cinc","Amp2"]
+    def fors():
+        total = []
+        mat = sys.argv
+        mat[0] = "Tots_Els_Apartats"
+        cls = "Tots_Els_Apartats"
+        for x in mat[0:]:
+            for i in mat[1:]:
+                if not (x == "Tots_Els_Apartats"):
+                    cls += "."+i
+                    print(i)
+                if i in opt.opts(eval(cls)):
+                    total.append(x)
+                    total.append(i)
+                else:
+                    return total
+        return total
+    print(fors())
+    """ if sys.argv[1:] in opt.opts():
+        args = ['python', 'setup-raw.py']
+        args.extend(sys.argv[1:])
+        subprocess.run(args, check=True, capture_output=True)
+
+    setup(**get_setup_kwargs(raw=False)) """
 if __name__ == "__main__":
     main()
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Tots" main.py
