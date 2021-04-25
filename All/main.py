@@ -419,12 +419,6 @@ def main():
                     return total
         return total
     print(fors())
-    """ if sys.argv[1:] in opt.opts():
-        args = ['python', 'setup-raw.py']
-        args.extend(sys.argv[1:])
-        subprocess.run(args, check=True, capture_output=True)
-
-    setup(**get_setup_kwargs(raw=False)) """
 if __name__ == "__main__":
     main()
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Tots" main.py
