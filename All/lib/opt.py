@@ -32,10 +32,8 @@ def options(cls,num=1):
         res = cls
         for x in range(num):
             if x == range(num)[-1]:
-                try:
-                    classMehtod(res)()
-                except:
-                    print("Nothing there")
+                if opts(res):
+                    return classMehtod(res)
             else:
                 res = optionsinclass(res)
         os.system("pause")

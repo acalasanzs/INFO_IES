@@ -13,7 +13,7 @@ class Tots_Els_Apartats:                                        #Class que englo
     class quatre:
         def ampliacio():
             files.cotxe()
-        def ampliacio():
+        def ampliacio4():
             files.main()
     class cinc:
         def E51():
@@ -103,13 +103,35 @@ class Tots_Els_Apartats:                                        #Class que englo
             print("Té {} paraules".format(len(res.split())))
             print("Té {} cáractes".format(len(res)))
     class sis:
-        def a65():
+        def Factorial_Dun_Nombre():
+            files.facto()
+        def a63():
+            casos = int(input("Quantes paraules vols introduïr? "))
+            print(casos)
+            cont = 0
+            while casos > 0:
+                cont += 1
+                print(input("Paraula "+str(cont)+" :"))
+                casos -= 1
+        def a65AMP():
             res = input("Digues números: ")
             a = res.split()
             total = 0
             for x in a:
                 total += int(x)
             return total
+        def a65():
+            casos = int(input("Quants nombres cal sumar? "))
+            print(casos," casos, d'acord.")
+            cont = n = 0
+            while casos > 0:
+                cont += 1
+                num = float(input("Nombre "+str(cont)+": "))
+                print(num)
+                n += num
+                casos -= 1
+            
+            print("Total:",n)
     class Set_1:
         """El primer exercici del set només"""
         def cub():
@@ -413,9 +435,9 @@ def main():
                     assert mat[idx+1] in opt.opts(eval(cls))
                 except:
                     return eval(cls)
+        check_class()()
     else:
         opt.options(Tots_Els_Apartats,2)
-    check_class()()
 if __name__ == "__main__":
     main()
 #pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Tots" main.py
