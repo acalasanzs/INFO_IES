@@ -9,4 +9,4 @@ class demo:
                             def less():
                                 print("less")
                             print("zero")
-opt.optionsAll(demo)
+opt.options(demo,2)

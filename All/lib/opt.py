@@ -25,19 +25,19 @@ def classMehtod(cls):
     a = ": "
     if cls.__doc__ != None: a += cls.__doc__
     print(color.b.blue,cls.__name__,a,color.end)
-    return optionsinclass(cls)
+    optionsinclass(cls)()
 def options(cls,num=1):
     repeat = True
     while repeat:
-        if num >= 2:
-            res = cls
-            for x in range(num):
-                if x == range(num)[-1]:
+        res = cls
+        for x in range(num):
+            if x == range(num)[-1]:
+                try:
                     classMehtod(res)()
-                else:
-                    res = optionsinclass(res)
-        else:
-            classMehtod(cls)
+                except:
+                    print("Nothing there")
+            else:
+                res = optionsinclass(res)
         os.system("pause")
         repeat =  False if input("Repeat?(Anything,n)") == "n" else True
 def optionsAll(cls):
@@ -46,8 +46,9 @@ def optionsAll(cls):
         res = cls
         while True:
             if opts(res):
-                res = classMehtod(cls)
+                opts(res)
+                res = optionsinclass(res)
             else:
                 return res()
-            os.system("pause")
+        os.system("pause")
         repeat =  False if input("Repeat?(Anything,n)") == "n" else True
