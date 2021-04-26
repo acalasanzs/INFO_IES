@@ -424,7 +424,7 @@ class Tots_Els_Apartats:                                        #Class que englo
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
-        def check_class():
+        def check_class(tot):
             total = []
             mat = sys.argv
             mat[0] = "Tots_Els_Apartats"
@@ -434,8 +434,10 @@ def main():
                 try:
                     assert mat[idx+1] in opt.opts(eval(cls))
                 except:
-                    return eval(cls)
-        check_class()()
+                    return eval(cls),(tot-int(cls.count(".")))
+        cla = check_class(2)
+        print(cla)
+        opt.options(cla[0],cla[1])
     else:
         opt.options(Tots_Els_Apartats,2)
 if __name__ == "__main__":
