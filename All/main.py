@@ -425,11 +425,14 @@ class Tots_Els_Apartats:                                        #Class que englo
         def Dau():
             tirades = Assgn(["Quantes tirades?"],vals=range(3,11))
             print(color.b.yellow,tirades.llista[0],"Tirades seleccionat.",color.end)
-            ask = Assgn(rang=range(int(tirades.llista[0])))
-            rand = random.randrange(1,6,1)
+            ask = Assgn(rang=range(int(tirades.llista[0])),vals=range(1,7))
+            rand = random.randrange(1,7,1)
             if rand in ask.llista:
                 jugador = [int(x) for x in ask.llista if x == rand]
                 print("Ha guanyat el jugador nº",ask.llista.index(jugador[0])+1)
+        def JocDelsDaus():
+            print("Every player throws 2 dies, which gets the largest value wins.")
+            jugadors = Assgn(["Jugador 1","Jugador 2"],rules="str")
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:

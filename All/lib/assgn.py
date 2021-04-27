@@ -1,5 +1,5 @@
 """
-Assgn class v 0.3.3
+Assgn class v 0.3.4
 TODO:
 line 199 and below must be corrected by self.vals
 """
@@ -87,6 +87,9 @@ class mess:
     def Empty():
         print("{}It's empty!!!!{}".format(color.b.red,color.end))
         quit()
+    def InvalidInput():
+        print("{}Invalid argument!!!!{}".format(color.b.red,color.end))
+        quit()
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
     def __init__(self,load=None,rang=None,rules=None,conj="",vals=None):
@@ -100,6 +103,8 @@ class Assgn():
         self.rules = rules
         if type(vals) in (tuple,range):
             self.vals = vals
+        elif vals is not None:
+            mess.InvalidInput()
      # Comprovar les rules
         self.conj = "" if type(conj) is not str else conj
         if type(load) is list:
@@ -187,8 +192,6 @@ class Assgn():
                                 if not(self.ln):
                                     result = List(self.llista,self.load)
                                 print(result)
-                        if vals and not(self.ans in vals):
-                            print(mess.err)
                     except ValueError:
                         print(mess.err)
                         continue
@@ -201,6 +204,8 @@ class Assgn():
                     if self.vals:
                         if not(self.ans <= 0) and (self.ans in self.vals):
                             break
+                        else:
+                            print(mess.err)
                     else:
                         if not(self.ans <= 0):
                             break
@@ -208,38 +213,46 @@ class Assgn():
                 if self.AllowStr:
                     self.ans = ""
                     while True:
-                        whilefunct()
+                        whilefunct(self.vals)
                         if self.vals:
                             if len(self.ans)>0 and (self.ans in vals):
                                 break
+                            else:
+                                print(mess.err)
                         else:
                             if len(self.ans)>0:
                                 break
                 else:
                     if self.AllowNegative and self.Allow0:
                         while True:
-                            whilefunct()
+                            whilefunct(self.vals)
                             if self.vals:
                                 if not(self.ans <= 0) and (self.ans in vals):
                                     break
+                                else:
+                                    print(mess.err)
                             else:
                                 break
                     elif self.AllowNegative and not(self.Allow0):
                         self.ans = 0
                         while True:
-                            whilefunct()
+                            whilefunct(self.vals)
                             if self.vals:
                                 if not(self.ans == 0) and (self.ans in vals):
                                     break
+                                else:
+                                    print(mess.err)
                             else:
                                 break
                     elif not(self.AllowNegative) and self.Allow0:
                         self.ans = -1
                         while True:
-                            whilefunct()
+                            whilefunct(self.vals)
                             if self.vals:
                                 if not(self.ans < 0) and (self.ans in vals):
                                     break
+                                else:
+                                    print(mess.err)
                             else:
                                 break
     def dispValues(self):
