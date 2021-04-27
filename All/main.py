@@ -1,6 +1,6 @@
 from lib import *
 import files
-import math,time,os,sys,random                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+import math,time,os,sys,random,numpy                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
 __doc__ = "Apartats 7, 8 i 9 AMPLIACIÓ I AMPLIACIÓ DE L'AMPLIACIÓ by Albert CS"
 os.system("title "+__doc__)
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
@@ -8,6 +8,7 @@ time.sleep(0.1)                                                 #Bugfix
 """
 TODO:
 1. Documentar aquest, ampliacio,py i assgn.py.
+2. En Joc del Daus importar numpy i fer un array 2d per anar sumant https://stackoverflow.com/questions/1514553/how-to-declare-an-array-in-python
 """
 class Tots_Els_Apartats:                                        #Class que engloba tots els exercicis classificats
     class quatre:
@@ -431,15 +432,21 @@ class Tots_Els_Apartats:                                        #Class que englo
                 jugador = [int(x) for x in ask.llista if x == rand]
                 print("Ha guanyat el jugador nº",ask.llista.index(jugador[0])+1)
         def JocDelsDaus():
+            daus = []
+            PlayerGames = Assgn(Ar2Dict(["Jugadors","Partides"]),rules=[False,False,True])
             print("Every player throws 2 dies, which gets the largest value wins.")
-            jugadors = Assgn(["Jugador 1","Jugador 2"],rules="str")
-            dau1 = random.randrange(1,7,1)
-            dau2 = random.randrange(1,7,1)
-            if dau1 > dau2:
-                print(jugadors.llista[0],"Guanya!")
-            else:
-                print(jugadors.llista[1],"Guanya!")
+            jugadors = Assgn(IterAr(PlayerGames.llista[0],"Jugador"),rules="str")
+            for i in range(PlayerGames[1]):
+                for x in range(PlayerGames[0]):
+                    daus.append(random.randrange(1,7,1))
             print("{}:{}, {}:{}".format(jugadors.llista[0],dau1,jugadors.llista[1],dau2))
+        def Loteria_La_Grossa():
+            num = random.randrange(0,100000,1)
+            print("Numero guanyador:",num)
+            print("Altres guanyadors: acabats en {}".format(num%10,))
+            print("Altres guanyadors: acabats en {}".format(num%100,))
+        def A_qui_li_tocara_parlar_en_public():
+            pass
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:

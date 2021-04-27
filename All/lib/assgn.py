@@ -48,6 +48,11 @@ def List2Dict(ar):
         r.append((x,x))
     dic = dict((key,r[key]) for key in range(len(ar)))
     return dic
+def IterAr(iter,word):
+    list = []
+    for x in range(iter):
+        list.append(word+" "+str(x+1))
+    return list
 class color:
     class t:
         HEADER = '\033[95m'
@@ -122,6 +127,8 @@ class Assgn():
             else:
                 print("Error on rules")
                 mess.Valerr()
+        if self.OnlyInt and not self.Allow0 and not self.AllowNegative:
+            self.rules = None
         elif rules == "str":
             self.AllowStr = True
         else:
