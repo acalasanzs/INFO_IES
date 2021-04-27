@@ -433,6 +433,13 @@ class Tots_Els_Apartats:                                        #Class que englo
         def JocDelsDaus():
             print("Every player throws 2 dies, which gets the largest value wins.")
             jugadors = Assgn(["Jugador 1","Jugador 2"],rules="str")
+            dau1 = random.randrange(1,7,1)
+            dau2 = random.randrange(1,7,1)
+            if dau1 > dau2:
+                print(jugadors.llista[0],"Guanya!")
+            else:
+                print(jugadors.llista[1],"Guanya!")
+            print("{}:{}, {}:{}".format(jugadors.llista[0],dau1,jugadors.llista[1],dau2))
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
