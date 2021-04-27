@@ -1,5 +1,5 @@
 """
-Assgn class v 0.3.3
+Assgn class v 0.3.2
 TODO:
 line 199 and below must be corrected by self.vals
 """

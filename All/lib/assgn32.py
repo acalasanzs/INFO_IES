@@ -1,7 +1,6 @@
 """
-Assgn class v 0.3.3
-TODO:
-line 199 and below must be corrected by self.vals
+Assgn class v 0.3.2
+Doc
 """
 import os
 os.system("")
@@ -89,17 +88,14 @@ class mess:
         quit()
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
-    def __init__(self,load=None,rang=None,rules=None,conj="",vals=None):
+    def __init__(self,load=None,rang=None,rules=None,conj=""):
         self.AllowNegative = False
         self.Allow0 = False
         self.AllowStr = False
         self.OnlyInt = False
-        self.vals = False
         self.value = []
         self.ans = None
         self.rules = rules
-        if type(vals) in (tuple,range):
-            self.vals = vals
      # Comprovar les rules
         self.conj = "" if type(conj) is not str else conj
         if type(load) is list:
@@ -154,7 +150,7 @@ class Assgn():
         for i in self.rang:
             if i < 0:
                 mess.Valerr()
-            def whilefunct(vals):
+            def whilefunct():
                 while True:
                     try:
                         global ans
@@ -187,8 +183,6 @@ class Assgn():
                                 if not(self.ln):
                                     result = List(self.llista,self.load)
                                 print(result)
-                        if vals and not(self.ans in vals):
-                            print(mess.err)
                     except ValueError:
                         print(mess.err)
                         continue
@@ -196,52 +190,22 @@ class Assgn():
                 self.ans = ans
             if self.rules is None:
                 self.ans = -1
-                while True:
-                    whilefunct(self.vals)
-                    if self.vals:
-                        if not(self.ans <= 0) and (self.ans in self.vals):
-                            break
-                    else:
-                        if not(self.ans <= 0):
-                            break
+                while self.ans <= 0:
+                    whilefunct()
             else:
                 if self.AllowStr:
                     self.ans = ""
-                    while True:
+                    while not(len(self.ans)>0):
                         whilefunct()
-                        if self.vals:
-                            if len(self.ans)>0 and (self.ans in vals):
-                                break
-                        else:
-                            if len(self.ans)>0:
-                                break
                 else:
                     if self.AllowNegative and self.Allow0:
-                        while True:
-                            whilefunct()
-                            if self.vals:
-                                if not(self.ans <= 0) and (self.ans in vals):
-                                    break
-                            else:
-                                break
+                        whilefunct()
                     elif self.AllowNegative and not(self.Allow0):
                         self.ans = 0
-                        while True:
-                            whilefunct()
-                            if self.vals:
-                                if not(self.ans == 0) and (self.ans in vals):
-                                    break
-                            else:
-                                break
+                        while self.ans == 0: whilefunct()
                     elif not(self.AllowNegative) and self.Allow0:
                         self.ans = -1
-                        while True:
-                            whilefunct()
-                            if self.vals:
-                                if not(self.ans < 0) and (self.ans in vals):
-                                    break
-                            else:
-                                break
+                        while self.ans < 0: whilefunct()
     def dispValues(self):
         for i,j in enumerate(self.llista):
             if not(self.ln):

@@ -423,11 +423,13 @@ class Tots_Els_Apartats:                                        #Class que englo
                 print(color.b.green,locals()[target](temp,res),color.end)
     class Deu():
         def Dau():
-            tirades = Assgn(["Quantes tirades?"])
-            while not(int(tirades.llista[0]) in (3,10)):
-                print(mess.err)
-                tirades = Assgn(["Quantes tirades?"])
-            ask = Assgn(rang=range(3))
+            tirades = Assgn(["Quantes tirades?"],vals=range(3,11))
+            print(color.b.yellow,tirades.llista[0],"Tirades seleccionat.",color.end)
+            ask = Assgn(rang=range(int(tirades.llista[0])))
+            rand = random.randrange(1,6,1)
+            if rand in ask.llista:
+                jugador = [int(x) for x in ask.llista if x == rand]
+                print("Ha guanyat el jugador nº",ask.llista.index(jugador[0])+1)
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
