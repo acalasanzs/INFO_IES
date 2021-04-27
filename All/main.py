@@ -1,6 +1,6 @@
 from lib import *
 import files
-import math,time,os,sys                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+import math,time,os,sys,random                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
 __doc__ = "Apartats 7, 8 i 9 AMPLIACIÓ I AMPLIACIÓ DE L'AMPLIACIÓ by Albert CS"
 os.system("title "+__doc__)
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
@@ -188,7 +188,7 @@ class Tots_Els_Apartats:                                        #Class que englo
             print("\u001b[1m\u001b[4m\u001b[7m ")
             print(roda)
             print("Una roda de "+str(obj.llista[0])+" metres de radi")
-            print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(obj.llista[1])+" voltes que dona")
+            print("recorre "+str(circ*obj.llista[1])+" m\u001b[0m CADA "+str(objs[1])+" voltes que dona")
             return "FET"
         def Set_3_Ampliacio():
             cotxe()                                                                                             #Funció de ampliacio.py
@@ -421,6 +421,13 @@ class Tots_Els_Apartats:                                        #Class que englo
                 print(color.b.green,str(temp)+res,color.end)
             else:
                 print(color.b.green,locals()[target](temp,res),color.end)
+    class Deu():
+        def Dau():
+            tirades = Assgn(["Quantes tirades?"])
+            while not(int(tirades.llista[0]) in (3,10)):
+                print(mess.err)
+                tirades = Assgn(["Quantes tirades?"])
+            ask = Assgn(rang=range(3))
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:

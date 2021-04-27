@@ -98,11 +98,6 @@ class Assgn():
         self.rules = rules
      # Comprovar les rules
         self.conj = "" if type(conj) is not str else conj
-        if type(load) is list:
-            dic = dict.fromkeys(range(len(load)),"")
-            for x in dic:
-                dic[x] = load[x]
-            load = dic
         if rules is None:
             pass
         elif (type(rules) is list) and (len(rules) == 3):
@@ -121,8 +116,14 @@ class Assgn():
         self.ln = False
         if load is None: self.ln = True
         if not(type(load) is dict) and not(self.ln):                                 #Verificar si load is dict
-            print("Line 121")
-            mess.DictErr()
+            if type(load) is list:
+                dic = dict.fromkeys(range(len(load)),"")
+                for x in dic:
+                    dic[x] = load[x]
+                load = dic
+            else:
+                print("Line 98")
+                mess.DictErr()
         else:
             self.load = load
             if type(load) is dict:
