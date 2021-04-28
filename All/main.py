@@ -457,7 +457,22 @@ class Tots_Els_Apartats:                                        #Class que englo
             print("Altres guanyadors: acabats en {}".format(num%10,))
             print("Altres guanyadors: acabats en {}".format(num%100,))
         def A_qui_li_tocara_parlar_en_public():
-            pass
+            noms = ("David","Antoni","Maria","Laia","Pol","Albert","Carles","Guillem","Marc","Leo","Martina","Biel","Abril","Martí","Arnau","Lucas","Sofía","Ona","Emma","Nil","Alba","Daniel")
+            match = random.choice(noms)
+            primer = match
+            while primer == match:
+                primer = random.choice(noms)
+            print("Li ha tocat a",match,"com a representant i a",primer,"com a suplent")
+        def Busca_lletres():
+            lletres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+            nom = ""
+            for x in range(1,6):
+                if x == 2 or x == 4:
+                    vocals = ['a','e','i','o','u']
+                    nom += random.choice(vocals)
+                else:
+                    nom += random.choice(lletres)
+            print(nom.capitalize())
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
