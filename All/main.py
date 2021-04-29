@@ -1,10 +1,12 @@
 from lib import *
 import files
-import math,time,os,sys,random,numpy                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
-__doc__ = "Apartats 7, 8 i 9 AMPLIACIÓ I AMPLIACIÓ DE L'AMPLIACIÓ by Albert CS"
+import math,time,os,sys,random,numpy,random                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
+from pynput.keyboard import Listener, Key
+__doc__ = "Apartats 4,5,6,7,8,9,10 by Albert CS"
 os.system("title "+__doc__)
 os.system("mode 155,42")                                        #Assegurar la compatibilitat d'ASCII ART
 time.sleep(0.1)                                                 #Bugfix
+lletres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 """
 TODO:
 1. Documentar aquest, ampliacio,py i assgn.py.
@@ -464,7 +466,6 @@ class Tots_Els_Apartats:                                        #Class que englo
                 primer = random.choice(noms)
             print("Li ha tocat a",match,"com a representant i a",primer,"com a suplent")
         def Busca_lletres():
-            lletres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
             nom = ""
             for x in range(1,6):
                 if x == 2 or x == 4:
@@ -473,6 +474,22 @@ class Tots_Els_Apartats:                                        #Class que englo
                 else:
                     nom += random.choice(lletres)
             print(nom.capitalize())
+        def Ampliacio():
+            matches = []
+            global p
+            p = "abdefghijklmnñopqrstuvwxyz"
+            def space(key):
+                if key == Key.space:
+                    print("space")
+                    a = random.choice(lletres)
+                    matches.append(a)
+                    current = ""
+                    abec = "abdefghijklmnñopqrstuvwxyz"
+                    for x in abec:
+                        current = p.translate({ord(x): "-"})
+                    print(current)
+            with Listener(on_press = space) as listener:
+                listener.join()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
