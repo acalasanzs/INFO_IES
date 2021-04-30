@@ -475,46 +475,51 @@ class Tots_Els_Apartats:                                        #Class que englo
                     nom += random.choice(lletres)
             print(nom.capitalize())
         def Ampliacio():
-            consola = Assgn(load=['Consola o Finestra?'],vals=(0,1))
-            matches = []
-            global p,count
-            p = input("Introdueix una paraula: ")
-            while not p:
-                p = input("Introdueix una paraula: ") #"abdefghijklmnñopqrstuvwxyz"
-            count = 0
-            def space(key):
+            clletres = lletres
+            consola = Assgn(load=['Consola o Finestra?(1/2)'],rules=[False,False,True],vals=(1,2)).llista[0]
+            if consola == 1:
+                matches = []
                 global p,count
-                temp = ""
-                def results():
-                    if "-" in temp:
-                        print(color.b.red,"YOU LOSE",color.end)
-                        main()
+                p = input("Introdueix una paraula: ")
+                while not p:
+                    p = input("Introdueix una paraula: ") #"abdefghijklmnñopqrstuvwxyz"
+                count = 0
+                def space(key):
+                    global p,count
+                    temp = ""
+                    def results():
+                        if "-" in temp:
+                            print(color.b.red,"YOU LOSE",color.end)
+                            main()
+                        else:
+                            print(color.b.green,"YOU WIN",color.end)
+                            main()
+                    if count < 10:
+                        if key == Key.space:
+                            count += 1
+                            print("Intent nº{}".format(count))
+                            a = random.choice(clletres)
+                            matches.append(a)
+                            clletres.remove(a)
+                            current = p
+                            abec = "abdefghijklmnñopqrstuvwxyz"
+                            for i in matches:
+                                abec = abec.translate({ord(i): "-"})
+                            for x in abec:
+                                p = p.translate({ord(x): "-"})
+                            print(p,"|",abec)
+                            if count <= 10:
+                                temp = p
+                            if not("-" in temp):
+                                results()
+                            p = current
+                        if count == 10: results()
                     else:
-                        print(color.b.green,"YOU WIN",color.end)
-                        main()
-                if count < 10:
-                    if key == Key.space:
-                        count += 1
-                        print("Intent nº{}".format(count))
-                        a = random.choice(lletres)
-                        matches.append(a)
-                        current = p
-                        abec = "abdefghijklmnñopqrstuvwxyz"
-                        for i in matches:
-                            abec = abec.translate({ord(i): "-"})
-                        for x in abec:
-                            p = p.translate({ord(x): "-"})
-                        print(p,"|",abec)
-                        if count <= 10:
-                            temp = p
-                        if not("-" in temp):
-                            results()
-                        p = current
-                    if count == 10: results()
-                else:
-                    results()
-            with Listener(on_press = space) as listener:
-                listener.join()
+                        results()
+                with Listener(on_press = space) as listener:
+                    listener.join()
+            else:
+                files.ttk.main()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
