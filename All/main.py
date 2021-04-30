@@ -519,7 +519,7 @@ class Tots_Els_Apartats:                                        #Class que englo
                 with Listener(on_press = space) as listener:
                     listener.join()
             else:
-                files.ttk.main()
+                files.ttk()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:

@@ -4,9 +4,9 @@ class Application(Frame):
         Frame.__init__(self, master, highlightbackground="#ffffff")
         self.parent = master
 root = Tk()
-root.iconbitmap('icon.ico')
+#root.iconbitmap('icon.ico')
 root.overrideredirect(1)
-root.geometry('800x250+800+200')
+root.geometry('800x250+500+100')
 app = Application(root)
 app.parent.configure(background = '#1abc9c')
 root.resizable(width=False, height=False)
