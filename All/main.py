@@ -476,18 +476,42 @@ class Tots_Els_Apartats:                                        #Class que englo
             print(nom.capitalize())
         def Ampliacio():
             matches = []
-            global p
-            p = "abdefghijklmnñopqrstuvwxyz"
+            global p,count
+            p = input("Introdueix una paraula: ")
+            while not p:
+                p = input("Introdueix una paraula: ") #"abdefghijklmnñopqrstuvwxyz"
+            count = 0
             def space(key):
-                if key == Key.space:
-                    print("space")
-                    a = random.choice(lletres)
-                    matches.append(a)
-                    current = ""
-                    abec = "abdefghijklmnñopqrstuvwxyz"
-                    for x in abec:
-                        current = p.translate({ord(x): "-"})
-                    print(current)
+                global p,count
+                temp = ""
+                def results():
+                    if "-" in temp:
+                        print(color.b.red,"YOU LOSE",color.end)
+                        main()
+                    else:
+                        print(color.b.green,"YOU WIN",color.end)
+                        main()
+                if count < 10:
+                    if key == Key.space:
+                        count += 1
+                        print("Intent nº{}".format(count))
+                        a = random.choice(lletres)
+                        matches.append(a)
+                        current = p
+                        abec = "abdefghijklmnñopqrstuvwxyz"
+                        for i in matches:
+                            abec = abec.translate({ord(i): "-"})
+                        for x in abec:
+                            p = p.translate({ord(x): "-"})
+                        print(p,"|",abec)
+                        if count <= 10:
+                            temp = p
+                        if not("-" in temp):
+                            results()
+                        p = current
+                    if count == 10: results()
+                else:
+                    results()
             with Listener(on_press = space) as listener:
                 listener.join()
 def main():
@@ -511,4 +535,4 @@ def main():
         opt.options(Tots_Els_Apartats,2)
 if __name__ == "__main__":
     main()
-#pyinstaller --onefile --icon=C:\Users\07cal\Downloads\pp.ico --name="Tots" main.py
+#pyinstaller --onefile --icon=pp.ico --name="Tots" main.py
