@@ -475,8 +475,8 @@ class Tots_Els_Apartats:                                        #Class que englo
                     nom += random.choice(lletres)
             print(nom.capitalize())
         def Ampliacio():
+            consola = Assgn(load=['Consola o Finestra?'],vals=(0,1))
             matches = []
-            stop = False
             global p,count
             p = input("Introdueix una paraula: ")
             while not p:
@@ -488,11 +488,9 @@ class Tots_Els_Apartats:                                        #Class que englo
                 def results():
                     if "-" in temp:
                         print(color.b.red,"YOU LOSE",color.end)
-                        stop = True
                         main()
                     else:
                         print(color.b.green,"YOU WIN",color.end)
-                        stop = True
                         main()
                 if count < 10:
                     if key == Key.space:
@@ -516,9 +514,6 @@ class Tots_Els_Apartats:                                        #Class que englo
                 else:
                     results()
             with Listener(on_press = space) as listener:
-                if stop:
-                    listener.stop()
-                    stop = False
                 listener.join()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']

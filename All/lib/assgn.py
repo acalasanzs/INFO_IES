@@ -132,7 +132,8 @@ class Assgn():
         elif rules == "str":
             self.AllowStr = True
         else:
-            print(color.b.red+"Error in rules input\nAll will become false"+color.end)
+            pass
+            #print(color.b.red+"Error in rules input\nAll will become false"+color.end)
         # Comprovar les rules
         self.ln = False
         if load is None: self.ln = True
