@@ -25,14 +25,14 @@ def ttk():
     app.parent.configure(background = '#1abc9c')
     root.resizable(width=False, height=False)
     matches = []
-    global p,temp,intents
+    global p,temp,intents,a
+    a = "-"
     clletres = lletres
     p = "jk"
     temp = "-"
     intents = 0
     def do():
-        global p,temp,intents
-        but['text'] = "Tornar-hi ({})".format(intents)
+        global p,temp,intents,a
         but['fg'] = "#8e44ad"
         app['background'] = '#8e44ad'
         print("Intent nº{}:".format(intents))
@@ -43,6 +43,7 @@ def ttk():
                 a = random.choice(clletres)
                 matches.append(a)
                 clletres.remove(a)
+                but['text'] = "Tornar-hi ({}) lletra: {}".format(intents,a)
                 current = p
                 abec = "abdefghijklmnñopqrstuvwxyz"
                 for i in matches:
@@ -75,11 +76,14 @@ def ttk():
                     command=root.destroy)
     input = Entry(root,fg="white",bg='#2abc9c',relief='flat',font=("Montserrat",30))
     input.place(relx=0.5,rely=0.5,anchor='center')
+    inputf = Label(root,fg="white",text="Enter a word:",bg='#1abc9c',relief='flat',font=("Helvetica",15))
+    inputf.place(relx=0.5,rely=0.35,anchor="center")
     def get():
         global p
         p = input.get().lower()
         print(p)
         input.place_forget()
+        inputf.place_forget()
         cur.place(relx=0.5,rely=0.5,anchor='center')
         do()
         but['command'] = do
@@ -92,8 +96,8 @@ def ttk():
                     font=('Roboto',15),
                     command=get,)
     cur = Label(root,fg="white",bg='#2abc9c',relief='flat',font=("Montserrat",30))
-    etiqueta = Label(root,text="Apartat 10 @ 10 Intents",fg="#1abc9c",font=('Roboto',28))
-    but.pack(side=BOTTOM)
+    etiqueta = Label(root,text="Apartat 10 @ 10 Intents",fg="#1abc9c",font=('Roboto',28)) 
+    but.pack(side=BOTTOM,fill=X)
     exit.pack(side=RIGHT,anchor="ne")
     etiqueta.pack(side=TOP,fill=X)
     main = Label(root,text="")
@@ -111,3 +115,39 @@ def ttk():
 if __name__ == "__main__":
     ttk()
 #pyinstaller --onefile -w --icon=icon.ico --name="AMPLIACIO" tkdemo.py
+
+
+
+
+
+
+
+
+""" class FloatingWindow(Toplevel):
+        def __init__(self, *args, **kwargs):
+            Toplevel.__init__(self, *args, **kwargs)
+            self.overrideredirect(True)
+
+            self.label = Label(self, text="Click on the grip to move")
+            self.grip = Label(self, bitmap="gray25")
+            self.grip.pack(side="left", fill="y")
+            self.label.pack(side="right", fill="both", expand=True)
+
+            self.grip.bind("<ButtonPress-1>", self.start_move)
+            self.grip.bind("<ButtonRelease-1>", self.stop_move)
+            self.grip.bind("<B1-Motion>", self.do_move)
+
+        def start_move(self, event):
+            self.x = event.x
+            self.y = event.y
+
+        def stop_move(self, event):
+            self.x = None
+            self.y = None
+
+        def do_move(self, event):
+            deltax = event.x - self.x
+            deltay = event.y - self.y
+            x = self.winfo_x() + deltax
+            y = self.winfo_y() + deltay
+            self.geometry(f"+{x}+{y}") """
