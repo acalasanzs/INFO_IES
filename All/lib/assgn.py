@@ -223,7 +223,7 @@ class Assgn():
                     while True:
                         whilefunct(self.vals)
                         if self.vals:
-                            if len(self.ans)>0 and (self.ans in vals):
+                            if len(self.ans)>0 and (self.ans in self.vals):
                                 break
                             else:
                                 print(mess.err)
@@ -235,7 +235,7 @@ class Assgn():
                         while True:
                             whilefunct(self.vals)
                             if self.vals:
-                                if not(self.ans <= 0) and (self.ans in vals):
+                                if not(self.ans <= 0) and (self.ans in self.vals):
                                     break
                                 else:
                                     print(mess.err)
@@ -246,7 +246,7 @@ class Assgn():
                         while True:
                             whilefunct(self.vals)
                             if self.vals:
-                                if not(self.ans == 0) and (self.ans in vals):
+                                if not(self.ans == 0) and (self.ans in self.vals):
                                     break
                                 else:
                                     print(mess.err)
@@ -257,7 +257,7 @@ class Assgn():
                         while True:
                             whilefunct(self.vals)
                             if self.vals:
-                                if not(self.ans < 0) and (self.ans in vals):
+                                if not(self.ans < 0) and (self.ans in self.vals):
                                     break
                                 else:
                                     print(mess.err)

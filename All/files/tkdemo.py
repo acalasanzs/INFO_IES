@@ -1,7 +1,7 @@
 from tkinter import *
 import random,time
-lletres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 def ttk():
+    lletres = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     def lose():
         print("YOU LOSE")
         los = Label(root,text="YOU lose!",font=("Montserrat",40),fg="red")
@@ -112,8 +112,6 @@ def ttk():
             etiqueta = tkinter.Label(root,text="",fg="#2980b9")
             etiqueta.pack(side=tkinter.TOP,fill=tkinter.X)
             root.mainloop() """
-if __name__ == "__main__":
-    ttk()
 #pyinstaller --onefile -w --icon=icon.ico --name="AMPLIACIO" tkdemo.py
 
 
