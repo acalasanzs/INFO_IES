@@ -277,3 +277,10 @@ class Assgn():
         if conj == "": conj = "<None>"
         return color.t.OKCYAN+"Rules\nA0{},A-{},AStr{},OnlInt{}".format(self.Allow0,self.AllowNegative,self.AllowStr,self.OnlyInt)+"\n"+color.end+"\nconj: {},\nrang: {},\n\nquestions: {},\n\nInputs: {}".format(conj,self.rang,self.value,self.llista)
  #myobject = Assgn({0: ["jA","metres"],1:"d",2:"aa",3:"ff"},None,[False,True,True],"en")
+if __name__ == "__main__":
+    dic = {
+        0: ("Peres","kilos"),
+        1: ("Pomes","unitats")
+    }
+    ElMeuObjecte = Assgn(dic)
+    print(ElMeuObjecte)

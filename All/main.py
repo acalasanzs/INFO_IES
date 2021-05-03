@@ -476,7 +476,7 @@ class Tots_Els_Apartats:                                        #Class que englo
             print(nom.capitalize())
         def Ampliacio():
             clletres = lletres
-            consola = Assgn(load=['Consola o Finestra?(1/2)'],rules=[True,False,True],vals=(0,1)).llista[0]
+            consola = Assgn(load=['Consola o Finestra?(0/1)'],rules=[True,False,True],vals=(0,1)).llista[0]
             if consola == 0:
                 matches = []
                 global p,count
@@ -518,6 +518,8 @@ class Tots_Els_Apartats:                                        #Class que englo
                         results()
                 with Listener(on_press = space) as listener:
                     listener.join()
+            else:
+                files.tk10.ttk()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
