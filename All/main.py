@@ -520,6 +520,60 @@ class Tots_Els_Apartats:                                        #Class que englo
                     listener.join()
             else:
                 files.tk10.ttk()
+    class onze:
+        def joc():
+        penjat = ['''
+            +---+
+            |   |
+                |
+                |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+                |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            |   |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            /|   |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            /|\  |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            /|\  |
+            /    |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            /|\  |
+            / \  |
+                |
+            =========''']
+            words = "valor aprender python comida jugar python web programacion videojuegos computador perros mascota pies arbol libros dinero lapiz telefono amor discos software libre propio cancion collar sol luna juguete españa escuela universidad".split()
+            def play(word): 
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:

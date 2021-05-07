@@ -43,7 +43,7 @@ def classMehtod(cls):
     if cls.__doc__ != None: a += cls.__doc__
     print(color.b.blue,cls.__name__,a,color.end)
     optionsinclass(cls)()
-def options(cls,num=1):
+def options(cls,num=1,loop=True):
     #Per a un nombre de vegades, interroga el directori d'una class
     repeat = True
     while repeat:
@@ -61,9 +61,11 @@ def options(cls,num=1):
         #pausa
         os.system("pause")
         #Pregunta si tornar-hi un altre vegada
-        repeat =  False if input("Repeat?(Anything,n)") == "n" else True
-
-def optionsAll(cls):
+        if loop:
+            repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+        else:
+            repeat = False
+def optionsAll(cls,loop=True):
     #Fins que no hi hagi res interroga el directori d'una class
     repeat = True
     while repeat:
@@ -79,4 +81,19 @@ def optionsAll(cls):
                 break
         #Pregunta si tornar-hi un altre vegada
         os.system("pause")
-        repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+        if loop:
+            repeat =  False if input("Repeat?(Anything,n)") == "n" else True
+        else:
+            repeat = False
+if __name__ == "__main__":
+    class demo:
+        class five:
+            class four:
+                class three:
+                    class two:
+                        class one:
+                            def zero():
+                                def less():
+                                    print("less")
+                                print("zero")
+    optionsAll(demo,True)

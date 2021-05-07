@@ -1,4 +1,5 @@
-import random, time, assgn, time, math
+import random, time, time, math
+import lib.assgn as assgn
 
 # 1.levels són els ranges de nivel fàcil,m,difícil
 global levels
@@ -61,5 +62,22 @@ class modes:
         #Els vals són el res                        #Ho suma tot
         resultat = assgn.Assgn(["Suma de tots"],vals=[sum(nums)])
         print("Well Done! Level {} passed".format(level))
+    def divisio():
+        global levels
+        levels = (5,12,20,40)
+        print("Level {}".format(level))
+        ran()
+        nums = []
+        #Per el doble de vegades que el nivel es mostraran nombres
+        #Randrange pel nivell
+        num = random.randrange(1,level*5+5)
+        divisor = random.randrange(1,level+10)
+        x = num*divisor
+        #Mostra el num per 1.5 segons
+        nums.append(x)
+        time.sleep(1.5)
+        #Els vals són el res                        #Ho suma tot
+        resultat = assgn.Assgn(["{0}/{0}".format(x,num)],vals=[divisor])
+        print("Well Done! Level {} passed".format(level))
 #5.Es crida un method en modes
-getattr(modes,assgn.Assgn(['Mode'],rules="str",vals=("multiplicacio","suma")).llista[0])()
+getattr(modes,assgn.Assgn(['Mode'],rules="str",vals=[method for method in dir(modes) if method.startswith('__') is False] ).llista[0])()

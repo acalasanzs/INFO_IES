@@ -1,5 +1,0 @@
-@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\dist"
-@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\build"
-@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\789\__pycache__"
-@RD /S /Q "C:\Users\07cal\Documents\Python\acs\IES\Definitive\Apartats 7, 8 i 9 by Albert CS.exe"
-start /b "" "pyinstaller" "--onefile" "--icon=pp.ico" "--name=Apartats 7, 8 i 9 by Albert CS" "main.py"

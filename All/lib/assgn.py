@@ -97,16 +97,18 @@ class mess:
         quit()
 class Assgn():
     "Makes n inputs and stores them into object list. Rules [A0,A-,OInt] or 'str'"
-    def __init__(self,load=None,rang=None,rules=None,conj="",vals=None):
+    def __init__(self,load=None,rang=None,rules=None,conj="",vals=None,ui= True,no=True):
         self.AllowNegative = False
         self.Allow0 = False
         self.AllowStr = False
         self.OnlyInt = False
         self.vals = False
         self.value = []
+        self.title = ui
+        self.no = no
         self.ans = None
         self.rules = rules
-        if type(vals) in (tuple,range):
+        if type(vals) in (tuple,range,list):
             self.vals = vals
         elif vals is not None:
             mess.InvalidInput()
@@ -163,7 +165,8 @@ class Assgn():
         self.input()
     def input(self):
         # HEADER
-        print(color.t.OKGREEN+"Set of {} questions".format(len(self.llista))+"\nAllow 0:{},Allow Negative:{},Allow String:{},Only Int: {}".format(self.Allow0,self.AllowNegative,self.AllowStr,self.OnlyInt)+color.end)
+        if self.title:
+            print(color.t.OKGREEN+"Set of {} questions".format(len(self.llista))+color.end)
         for i in self.rang:
             if i < 0:
                 mess.Valerr()
@@ -175,13 +178,17 @@ class Assgn():
                         a = "valor "+str(i+1)
                         b = ""
                         self.value = [x+1 for x in self.rang]
+                        if self.no:
+                            self.no = str(i+1) + ". "
+                        else:
+                            self.no = ""
                         if not(self.ln):
                             self.value = [x[1] for x in Dic2List(self.load)]
                             b = self.value[i][1]
                             a = self.value[i][0]
-                        if len(self.conj) > 0 and len(b) > 0: magn = " "+self.conj+" "+str(b)+" :"
+                        if len(self.conj) > 0 and len(b) > 0: magn = " "+self.conj+" "+str(b)+" : "
                         if self.AllowStr:
-                            ans = str(input(str(i+1)+". Introdueix "+str(a)+magn))
+                            ans = str(input(self.no+"Introdueix "+str(a)+magn))
                             self.llista[i] = ans
                             result = self.llista
                             if not(self.ln):
@@ -189,9 +196,9 @@ class Assgn():
                             print(result)
                         else:
                             if self.OnlyInt:
-                                ans = int(input(str(i+1)+". Introdueix "+str(a)+magn))
+                                ans = int(input(self.no+"Introdueix "+str(a)+magn))
                             else:
-                                ans = float(input(str(i+1)+". Introdueix "+str(a)+magn)) #He convertit el dictionary loaded en un array de tuples: value[i+offset] i+ofsset és l'index del array de tuples => [0] o [1] és per establir si el primer valor del tuple o el segon.
+                                ans = float(input(self.no+"Introdueix "+str(a)+magn)) #He convertit el dictionary loaded en un array de tuples: value[i+offset] i+ofsset és l'index del array de tuples => [0] o [1] és per establir si el primer valor del tuple o el segon.
                             if (ans < 0 and not(self.AllowNegative)) or (ans == 0 and not(self.Allow0)):
                                 print(mess.err)
                             else:
@@ -277,6 +284,7 @@ class Assgn():
         if conj == "": conj = "<None>"
         return color.t.OKCYAN+"Rules\nA0{},A-{},AStr{},OnlInt{}".format(self.Allow0,self.AllowNegative,self.AllowStr,self.OnlyInt)+"\n"+color.end+"\nconj: {},\nrang: {},\n\nquestions: {},\n\nInputs: {}".format(conj,self.rang,self.value,self.llista)
  #myobject = Assgn({0: ["jA","metres"],1:"d",2:"aa",3:"ff"},None,[False,True,True],"en")
+
 if __name__ == "__main__":
     dic = {
         0: ("Peres","kilos"),
