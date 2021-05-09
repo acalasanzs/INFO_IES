@@ -1,5 +1,5 @@
 from lib import *
-import files
+import files,brainage
 import math,time,os,sys,random,numpy,random                                             #Math per mates, time per controla el temps i os per opcions del sistema(cmd)
 from pynput.keyboard import Listener, Key
 __doc__ = "Apartats 4,5,6,7,8,9,10 by Albert CS"
@@ -522,58 +522,59 @@ class Tots_Els_Apartats:                                        #Class que englo
                 files.tk10.ttk()
     class onze:
         def joc():
-        penjat = ['''
-            +---+
-            |   |
-                |
-                |
-                |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-                |
-                |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-            |   |
-                |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-            /|   |
-                |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-            /|\  |
-                |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-            /|\  |
-            /    |
-                |
-            =========''', '''
-            +---+
-            |   |
-            O   |
-            /|\  |
-            / \  |
-                |
-            =========''']
+            penjat = ['''
+                +---+
+                |   |
+                    |
+                    |
+                    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                    |
+                    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                |   |
+                    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                /|   |
+                    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                /|\  |
+                    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                /|\  |
+                /    |
+                    |
+                =========''', '''
+                +---+
+                |   |
+                O   |
+                /|\  |
+                / \  |
+                    |
+                =========''']
             words = "valor aprender python comida jugar python web programacion videojuegos computador perros mascota pies arbol libros dinero lapiz telefono amor discos software libre propio cancion collar sol luna juguete españa escuela universidad".split()
-            def play(word): 
+        def brainAge():
+            brainage.brainage()
 def main():
     #sys.argv = ['file.py','cinc','Amp2']
     if sys.argv[1:]:
